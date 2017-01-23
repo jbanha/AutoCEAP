@@ -24,7 +24,7 @@ function migrate() {
     var calendars = CalendarApp.getAllCalendars();
 	Logger.log(calendars);
 	
-    for (var i = 0; i++; i < 0calendars.length()) {
+    for (var i = 0; i++; i < calendars.length()) {
 		Logger.log(calendars[i].getName());
     }
 
