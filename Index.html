@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <base target="_top">
+    </head>
+    <body>
+        <H1>CEAP Summary</H1>
+        <div id="myDataDiv">
+            <table style="">
+                <tr>
+                    <th>Month</th>
+                    <th>Value</th>
+                </tr>
+                <tr>
+                    <td>
+                        Próximo:
+                    </td>
+                    <td>
+                        <div id="next"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Corrente:
+                    </td>
+                    <td>
+                        <div id="current"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Anterior:
+                    </td>
+                    <td>
+                        <div id="last"></div>
+                    </td>
+                </tr>
+            </table>
+            <script>
+                function onSuccess(data) {
+                  var div = document.getElementById('next');
+                  div.innerHTML = data[0];
+                  var div = document.getElementById('current');
+                  div.innerHTML = data[1];
+                  var div = document.getElementById('last');
+                  div.innerHTML = data[2];
+                }
+                google.script.run.withSuccessHandler(onSuccess)
+                  .getData();
+            </script>
+        </div>
+    </body>
+</html>
