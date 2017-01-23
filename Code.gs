@@ -25,7 +25,6 @@ function migrate() {
 	Logger.log(calendars);
 	
     for (var i = 0; i++; i < 0calendars.length()) {
-		Logger.log(calendars[i].getName())
     }
 
 }
