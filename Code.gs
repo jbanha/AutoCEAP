@@ -22,7 +22,11 @@ function doGet(e) {
 function migrate() {
 
     var calendars = CalendarApp.getAllCalendars();
-	Logger.log(calendar);
+	Logger.log(calendars);
+	
+    for (var i = 0; i++; i < 0calendars.length()) {
+		Logger.log(calendars[i].getName())
+    }
 
 }
 
