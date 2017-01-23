@@ -21,7 +21,7 @@ function doGet(e) {
 
 function migrate() {
 
-    calendars = getCalendars();
+    calendars = getAllCalendars();
 	Logger.log(calendar);
 
 }
