@@ -19,30 +19,59 @@ function doGet(e) {
 
 }
 
+<<<<<<< HEAD
 function sync() {
 
     var calendars = CalendarApp.getAllCalendars();
     
     var StartTime = new Date(2000, 0, 0, 0, 0, 0);
     var EndTime = new Date(2020, 0, 0, 0, 0, 0);
+	
+function removeAfterSync() {
+  
+    //not needed further
+
+    var calendars = CalendarApp.getAllCalendars();
+  
+    var sTime = new Date(2000, 0, 1, 0, 0, 0);
+    var eTime = new Date(2020, 0, 1, 0, 0, 0);
+    var events = calendars[0].getEvents(sTime, eTime);
+  
+    for (i = 0; i < events.length; i++){
+        if (events[i].getLocation().indexOf("CEAP") != -1){
+            //Logger.log(events[i].getTitle());
+            //events[i].deleteEvent();
+        }
+    }
+}
+
+function sync() {
+
+    var calendars = CalendarApp.getAllCalendars();
+    
+    var StartTime = new Date(2017, 0, 0, 0, 0, 0);
+    var EndTime = new Date(2017, 0, 0, 0, 0, 0);
     
     var events = calendars[0].getEvents(StartTime, EndTime);
     var toDeleteEvents = calendars[1].getEvents(StartTime, EndTime);
-    Logger.log(events.length);
+    //Logger.log(events.length);
   
     //for (var i = 0; i < toDeleteEvents.length; i++){
+    //    Logger.log(toDeleteEvents[i].getTitle());
     //    toDeleteEvents[i].deleteEvent();
     //}
   
-    for (var i = 0; i < calendars.length; i++){
-        Logger.log(calendars[i].getName());
-    }
+    //for (var i = 0; i < calendars.length; i++){
+    //    Logger.log(calendars[i].getName());
+    //}
   
     for (var i = 0; i < events.length; i++){
+        Logger.log(events[i].getTitle());
+        Logger.log(events[i].getStartTime());
         if(events[i].getLocation().indexOf("CEAP") != -1){
-            Logger.log(events[i].getTitle());
-            event = calendars[1].createEvent(events[i].getTitle(), events[i].getStartTime(), events[i].getEndTime());
-            event.setLocation("CEAP");
+            //event = calendars[1].createEvent(events[i].getTitle(), events[i].getStartTime(), events[i].getEndTime());
+            //event.setLocation("CEAP");
+            Logger.log(event.getTitle());
         }
     }
 
@@ -183,7 +212,7 @@ function getCalendars() {
     for (var i = calendars.length; i--; i >= 0) {
         var calendar_name = calendars[i].getName();
 
-        if (calendar_name.indexOf("joao") != -1) {
+        if (calendar_name.indexOf("CEAP") != -1) {
             teacher_calendars = teacher_calendars.concat(calendar_name);
         }
     }
