@@ -19,13 +19,31 @@ function doGet(e) {
 
 }
 
-function migrate() {
+function sync() {
 
     var calendars = CalendarApp.getAllCalendars();
-	Logger.log(calendars);
-	
-    for (var i = 0; i++; i < calendars.length()) {
-		Logger.log(calendars[i].getName());
+    
+    var StartTime = new Date(2000, 0, 0, 0, 0, 0);
+    var EndTime = new Date(2020, 0, 0, 0, 0, 0);
+    
+    var events = calendars[0].getEvents(StartTime, EndTime);
+    var toDeleteEvents = calendars[1].getEvents(StartTime, EndTime);
+    Logger.log(events.length);
+  
+    //for (var i = 0; i < toDeleteEvents.length; i++){
+    //    toDeleteEvents[i].deleteEvent();
+    //}
+  
+    for (var i = 0; i < calendars.length; i++){
+        Logger.log(calendars[i].getName());
+    }
+  
+    for (var i = 0; i < events.length; i++){
+        if(events[i].getLocation().indexOf("CEAP") != -1){
+            Logger.log(events[i].getTitle());
+            event = calendars[1].createEvent(events[i].getTitle(), events[i].getStartTime(), events[i].getEndTime());
+            event.setLocation("CEAP");
+        }
     }
 
 }
