@@ -19,14 +19,6 @@ function doGet(e) {
 
 }
 
-<<<<<<< HEAD
-function sync() {
-
-    var calendars = CalendarApp.getAllCalendars();
-    
-    var StartTime = new Date(2000, 0, 0, 0, 0, 0);
-    var EndTime = new Date(2020, 0, 0, 0, 0, 0);
-	
 function removeAfterSync() {
   
     //not needed further
@@ -54,7 +46,7 @@ function sync() {
     
     var events = calendars[0].getEvents(StartTime, EndTime);
     var toDeleteEvents = calendars[1].getEvents(StartTime, EndTime);
-    //Logger.log(events.length);
+    Logger.log(events.length);
   
     //for (var i = 0; i < toDeleteEvents.length; i++){
     //    Logger.log(toDeleteEvents[i].getTitle());
